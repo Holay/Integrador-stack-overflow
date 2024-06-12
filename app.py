@@ -28,7 +28,7 @@ file_key = 'embedded_100k_reviews.csv'
 obj = s3_client.get_object(Bucket=bucket_name, Key=file_key)
 data = obj['Body'].read()
 df = pd.read_csv(io.BytesIO(data))
-# df = pd.read_csv('./output/embedded_100k_reviews.csv')
+df = pd.read_csv('./output/embedded_100k_reviews.csv')
 print('Datos cargados')
 print(len(df))
 df['ada_embedding'] = df['ada_embedding'].apply(convert)
